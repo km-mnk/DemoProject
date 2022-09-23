@@ -18,6 +18,8 @@ public class UserRestController {
 
     @PostMapping("/signup")
     public String postMethod(@RequestBody User user){
+        System.out.println("user name is: "+user.userName);
+        System.out.println("user password: "+user.password);
         return "post test";
     }
 
