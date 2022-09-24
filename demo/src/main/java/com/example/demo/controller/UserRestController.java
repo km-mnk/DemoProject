@@ -5,6 +5,7 @@ import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,13 +24,13 @@ public class UserRestController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/login")
-    public Boolean loginUser(@PathParam("id") String userName){
+    @GetMapping("/login/{Id}")
+    public Boolean loginUser(@PathVariable("Id") String userName){
         return userService.loginUser(userName);
     }
 
     @GetMapping("/getuser/{Id}")
-    public Optional<User> getUserById(@PathParam("Id") String userName){
+    public Optional<User> getUserById(@PathVariable("Id") String userName){
         return userService.getUser(userName);
     }
 
@@ -54,7 +55,7 @@ public class UserRestController {
     }
 
     @DeleteMapping("/delete/{username}")
-    public String deleteMethod(@PathParam("username") String  userName){   
+    public String deleteMethod(@PathVariable("username") String  userName){   
         return userService.deleteUser(userName);
     }  
 

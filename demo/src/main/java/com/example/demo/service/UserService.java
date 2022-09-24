@@ -25,15 +25,13 @@ public class UserService  {
 
     public String addUser(User user) {
         User createdUser=userRepository.save(user);
+        System.out.println(userRepository.findAll());
         return "user created with username : "+createdUser.getUserName();  
     }
 
     public Boolean loginUser(String username) {
-        Optional<User> user=userRepository.findById(username);
-        if(user!=null){
-            return true;
-        }
-        return false;
+        Boolean user= userRepository.findById(username).isEmpty()==true?false:true;
+        return user;
     }
 
     public Optional<User> getUser(String userName) {
