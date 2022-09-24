@@ -55,7 +55,7 @@ public class UserRestController {
 
     @DeleteMapping("/delete/{username}")
     public String deleteMethod(@PathParam("username") String  userName){   
-        return "delete test";
+        return userService.deleteUser(userName);
     }  
 
 }
