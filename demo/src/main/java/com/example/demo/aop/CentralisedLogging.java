@@ -3,6 +3,7 @@ package com.example.demo.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -36,6 +37,14 @@ public class CentralisedLogging {
         System.out.println("return values is :" + result.toString());
 
 	}
+
+	@AfterThrowing(value = "execution(* com.example.demo.controller.UserRestController.*(..))",throwing = "Exception")
+    public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex)  
+    {  
+        System.out.println("After Throwing exception in method:"+joinPoint.getSignature());  
+        System.out.println("Exception is:"+ex.getMessage());  
+    }  
+
 
    /*  @Around(value = "execution(* com.example.demo.controller.*.*(..))")
 	public void aroundAdvice(ProceedingJoinPoint pjp) {
