@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
-
 import java.util.List;
-import java.util.Optional;   
+import java.util.Optional;
+import javax.validation.Valid;
+
+
 
 @RestController("/demo")
 public class UserRestController {
@@ -36,16 +37,8 @@ public class UserRestController {
 
     }
 
-    /*@PostMapping("/signup")
-    public String postMethod(@RequestBody User user){
-        System.out.println("user name is: "+user.getUserName());
-        System.out.println("user password: "+user.getPassword());
-        return "post test";
-    }*/
-
-
     @PostMapping("/signup")
-    public String addUser(@RequestBody User user){
+    public String addUser(@RequestBody @Valid User user){
         return userService.addUser(user);
     }
 

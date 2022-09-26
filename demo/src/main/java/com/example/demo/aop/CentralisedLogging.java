@@ -6,22 +6,28 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
 
 
 
 @Aspect
 @Component
+@Slf4j
 public class CentralisedLogging {
+    
+    Logger log = LoggerFactory.getLogger(CentralisedLogging.class);
 
 	@Before(value = "execution(* com.example.demo.controller.UserRestController.*(..))")
 	public void beforeAdvice(JoinPoint joinPoint) {
+        log.info("Hello wolrd");
         System.out.println("before advice");
-        //System.out.println("class name is:" +joinPoint.getClass().getName());
 		System.out.println("Before method:" + joinPoint.getSignature());
-       // System.out.println("args names are : "+joinPoint.getArgs().toString());
 
 	}
+
 
 	@After(value = "execution(* com.example.demo.controller.UserRestController.*(..))")
 	public void afterAdvice(JoinPoint joinPoint) {
@@ -36,6 +42,8 @@ public class CentralisedLogging {
         System.out.println("return values is :" + result.toString());
 
 	}
+
+
 
 	@AfterThrowing(value = "execution(* com.example.demo.controller.UserRestController.*(..))",throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex)  
