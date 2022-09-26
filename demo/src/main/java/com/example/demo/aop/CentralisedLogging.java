@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-//import org.aspectj.lang.annotation.Aspect;
 
 
 @Aspect
@@ -30,7 +29,7 @@ public class CentralisedLogging {
 
 	}
 
-    
+
 	@AfterReturning(pointcut = "execution(* com.example.demo.controller.UserRestController.*(..))",returning = "result")
 	public void afterReturning(JoinPoint joinPoint,Object result) {
         System.out.println("afterReturning advice");
@@ -38,7 +37,7 @@ public class CentralisedLogging {
 
 	}
 
-	@AfterThrowing(value = "execution(* com.example.demo.controller.UserRestController.*(..))",throwing = "Exception")
+	@AfterThrowing(value = "execution(* com.example.demo.controller.UserRestController.*(..))",throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex)  
     {  
         System.out.println("After Throwing exception in method:"+joinPoint.getSignature());  
