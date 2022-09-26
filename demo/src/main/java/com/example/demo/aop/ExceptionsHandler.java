@@ -23,5 +23,4 @@ public class ExceptionsHandler {
         return errors;
     }
 
-
 }
