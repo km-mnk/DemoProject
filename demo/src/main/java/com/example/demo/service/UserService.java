@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.constraints.Null;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.exception.UserNotFounException;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 
@@ -14,7 +17,8 @@ import com.example.demo.repository.UserRepository;
 public class UserService  {
     
     @Autowired    
-    private UserRepository userRepository; 
+    private UserRepository userRepository;
+    private Long userName; 
 
     public List<User> getAllUsers()  
     {    
@@ -34,15 +38,20 @@ public class UserService  {
         return user;
     }
 
-    public Optional<User> getUser(String userName) {
-        Optional<User> user=userRepository.findById(userName);
+    public Optional<User> getUser(String userId) throws UserNotFounException {
+        Optional<User> user=userRepository.findById(userId);
+        if(user.isEmpty()){
+            System.out.println("error occurred");
+            throw new UserNotFounException("user not found");
+        }
+
         return user;
     }
 
     public String deleteUser(String userName) {
         userRepository.deleteById(userName);
         Optional<User> user=userRepository.findById(userName);
-        if(user!=null){
+        if(user.isEmpty()){
             return "user not deleted";
         }
         return "user deleted";

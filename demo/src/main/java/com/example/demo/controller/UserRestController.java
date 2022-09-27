@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.exception.UserNotFounException;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import java.util.List;
@@ -26,8 +28,8 @@ public class UserRestController {
     }
 
     @GetMapping("/getuser/{Id}")
-    public Optional<User> getUserById(@PathVariable("Id") String userName){
-        return userService.getUser(userName);
+    public Optional<User> getUserById(@PathVariable("Id") String userId) throws UserNotFounException{
+        return userService.getUser(userId);
     }
 
 

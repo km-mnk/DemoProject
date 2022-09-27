@@ -28,7 +28,6 @@ public class CentralisedLogging {
 
 	}
 
-
 	@After(value = "execution(* com.example.demo.controller.UserRestController.*(..))")
 	public void afterAdvice(JoinPoint joinPoint) {
         System.out.println("after advice");
