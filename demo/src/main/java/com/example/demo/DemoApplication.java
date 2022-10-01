@@ -13,3 +13,12 @@ public class DemoApplication {
 	}
 
 }
+
+/*
+ * 
+ * https://www.youtube.com/watch?v=her_7pa0vrg -- spring security tutorials and so good  u can get cod efrom github link under you tube viode -- it
+ * 
+ *there are branches check bracnehs for each case
+ * 
+ * 
+ */

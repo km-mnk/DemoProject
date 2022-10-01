@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exception.UserNotFounException;
-import com.example.demo.model.User;
+import com.example.demo.model.MyUser;
 import com.example.demo.repository.UserRepository;
 
 @Service
@@ -20,15 +20,15 @@ public class UserService  {
     private UserRepository userRepository;
     private Long userName; 
 
-    public List<User> getAllUsers()  
+    public List<MyUser> getAllUsers()  
     {    
-        List<User>userRecords = new ArrayList<>();    
+        List<MyUser>userRecords = new ArrayList<>();    
         userRepository.findAll().forEach(userRecords::add);    
         return userRecords;    
     }
 
-    public String addUser(User user) {
-        User createdUser=userRepository.save(user);
+    public String addUser(MyUser user) {
+        MyUser createdUser=userRepository.save(user);
         System.out.println(userRepository.findAll());
         return "user created with username : "+createdUser.getUserName();  
     }
@@ -38,8 +38,8 @@ public class UserService  {
         return user;
     }
 
-    public Optional<User> getUser(String userId) throws UserNotFounException {
-        Optional<User> user=userRepository.findById(userId);
+    public Optional<MyUser> getUser(String userId) throws UserNotFounException {
+        Optional<MyUser> user=userRepository.findById(userId);
         if(user.isEmpty()){
             System.out.println("error occurred");
             throw new UserNotFounException("user not found");
@@ -50,7 +50,7 @@ public class UserService  {
 
     public String deleteUser(String userName) {
         userRepository.deleteById(userName);
-        Optional<User> user=userRepository.findById(userName);
+        Optional<MyUser> user=userRepository.findById(userName);
         if(user.isEmpty()){
             return "user not deleted";
         }

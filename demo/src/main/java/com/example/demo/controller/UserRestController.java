@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.exception.UserNotFounException;
-import com.example.demo.model.User;
+import com.example.demo.model.MyUser;
 import com.example.demo.service.UserService;
 import java.util.List;
 import java.util.Optional;
@@ -28,19 +28,19 @@ public class UserRestController {
     }
 
     @GetMapping("/getuser/{Id}")
-    public Optional<User> getUserById(@PathVariable("Id") String userId) throws UserNotFounException{
+    public Optional<MyUser> getUserById(@PathVariable("Id") String userId) throws UserNotFounException{
         return userService.getUser(userId);
     }
 
 
     @GetMapping("/getAllUsers")
-    public List<User>  getAllUsers(){
+    public List<MyUser>  getAllUsers(){
         return userService.getAllUsers();
 
     }
 
     @PostMapping("/signup")
-    public String addUser(@RequestBody @Valid User user){
+    public String addUser(@RequestBody @Valid MyUser user){
         return userService.addUser(user);
     }
 
@@ -48,5 +48,11 @@ public class UserRestController {
     public String deleteMethod(@PathVariable("username") String  userName){   
         return userService.deleteUser(userName);
     }  
+    @PostMapping("/getToken")
+    public StrictMath getToken(@RequestBody String body){
+        return null;
+
+    }
+   
 
 }

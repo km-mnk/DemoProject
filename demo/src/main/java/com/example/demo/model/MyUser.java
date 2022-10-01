@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Table(name="USER_TABLE")
 @Data
-public class User {
+public class MyUser {
     @Id
    // @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
