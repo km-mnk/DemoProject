@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.authenta.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.exception.UserNotFounException;
-import com.example.demo.model.MyUser;
-import com.example.demo.service.UserService;
+import com.authenta.demo.exception.UserNotFounException;
+import com.authenta.demo.model.MyUser;
+import com.authenta.demo.service.UserService;
+
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
-
-
 
 @RestController("/demo")
 public class UserRestController {

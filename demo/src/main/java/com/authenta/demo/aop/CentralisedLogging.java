@@ -1,4 +1,4 @@
-package com.example.demo.aop;
+package com.authenta.demo.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

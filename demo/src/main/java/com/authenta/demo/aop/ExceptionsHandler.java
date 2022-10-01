@@ -1,12 +1,11 @@
-package com.example.demo.aop;
+package com.authenta.demo.aop;
 
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-
-import com.example.demo.exception.UserNotFounException;
+import com.authenta.demo.exception.UserNotFounException;
 
 import java.util.HashMap;
 import java.util.Map;

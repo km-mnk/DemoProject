@@ -1,4 +1,4 @@
-package com.example.demo.exception;
+package com.authenta.demo.exception;
 
 public class UserNotFounException extends Exception {
     public UserNotFounException(String message)   

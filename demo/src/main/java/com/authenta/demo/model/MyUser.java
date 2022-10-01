@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.authenta.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

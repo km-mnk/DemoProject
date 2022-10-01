@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.authenta.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import javax.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.exception.UserNotFounException;
-import com.example.demo.model.MyUser;
-import com.example.demo.repository.UserRepository;
+import com.authenta.demo.exception.UserNotFounException;
+import com.authenta.demo.model.MyUser;
+import com.authenta.demo.repo.UserRepository;
 
 @Service
 public class UserService  {
